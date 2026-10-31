@@ -1,0 +1,55 @@
+/* § Stickers: die-cut set for print and messaging apps */
+(function () {
+  const T = Q.text, r2 = Q.r2, P = Q.theme('party'), K = '#000';
+  const circleText = (cx, cy, r, str, o) => { const id = Q.uid('cp'); return `<defs><path id="${id}" d="M${cx - r} ${cy}a${r} ${r} 0 1 1 ${r * 2} 0a${r} ${r} 0 1 1 ${-r * 2} 0"/></defs><text font-family="${Q.F[o.f || 'm']}" font-size="${o.s}" font-weight="${o.w || 600}" letter-spacing="${o.ls || 0}" fill="${o.fill}"><textPath href="#${id}" startOffset="${o.off || 0}">${Q.esc(str)}</textPath></text>`; };
+  const S = [
+    { k: 'symbol', n: 'The mark', round: true, draw: () => `<circle cx="300" cy="300" r="270" fill="${K}"/>` + Q.mark(70, 70, 460, { mode: 'party' }) },
+    { k: 'afterparty-bru', n: 'Afterparty · Brussels', round: true, draw: () => `<circle cx="300" cy="300" r="270" fill="${K}"/><circle cx="300" cy="300" r="200" fill="none" stroke="${P.disk}" stroke-width="3"/>` + circleText(300, 300, 228, 'REALITY HACK AFTERPARTY · BRUSSELS · 12.2026 · ', { s: 31, ls: 3.2, fill: P.c }) + Q.mark(160, 160, 280, { mode: 'party' }) },
+    { k: 'event-horizon', n: 'I survived the event horizon', round: true, draw: () => `<circle cx="300" cy="300" r="270" fill="${K}"/>` + Q.quasar(300, 360, 190, P, { jet: 0 }) + T(300, 150, ['I SURVIVED', 'THE EVENT', 'HORIZON'], { f: 'd', s: 50, w: 800, fill: P.a, anchor: 'middle', lh: 1 }) },
+    { k: 'dbh', n: 'Data Black Hole', round: true, draw: () => { let s = `<circle cx="300" cy="300" r="270" fill="#EFE7DA"/>`; for (let i = 0; i < 9; i++) { const f = i / 8, rx = 200 * Math.pow(1 - f, 1.4) + 10; s += `<ellipse cx="300" cy="${r2(250 + f * f * 130)}" rx="${r2(rx)}" ry="${r2(rx * 0.24)}" fill="none" stroke="#14111A" stroke-width="2.5"/>`; } return s + `<circle cx="300" cy="380" r="9" fill="#14111A"/>` + circleText(300, 300, 222, 'DATA BLACK HOLE · DATA BLACK HOLE · ', { s: 34, ls: 4, fill: '#C4441A' }); } },
+    { k: 'ndf', n: 'Not Designed For', draw: () => `<rect x="70" y="170" width="380" height="330" rx="24" fill="#F4EAD8"/><circle cx="440" cy="190" r="110" fill="${P.a}"/>` + T(105, 300, ['NOT', 'DESIGNED', 'FOR'], { f: 'd', s: 58, w: 800, fill: '#050307', lh: 1.05 }) },
+    { k: 'brightest', n: 'Become the brightest light', draw: () => `<rect x="40" y="190" width="520" height="220" rx="110" fill="${P.disk}"/>` + T(300, 288, ['BECOME THE', 'BRIGHTEST LIGHT'], { f: 'd', s: 44, w: 800, fill: '#000', anchor: 'middle', lh: 1.1 }) },
+    { k: '7d', n: '7D', draw: () => `<ellipse cx="300" cy="320" rx="270" ry="80" fill="none" stroke="${P.b}" stroke-width="22"/>` + T(300, 420, '7D', { f: 'd', s: 300, w: 800, fill: P.a, anchor: 'middle', ls: -10 }) + `<path d="M30 320A270 80 0 0 0 570 320" fill="none" stroke="${P.b}" stroke-width="22"/>` },
+    { k: 'iteration', n: 'i*+1', draw: () => `<rect x="90" y="140" width="420" height="320" rx="40" fill="${P.c}"/>` + T(300, 340, 'i*+1', { f: 'm', s: 140, w: 800, fill: '#000', anchor: 'middle' }) + T(300, 420, 'BUILD · PLUS/DELTA', { f: 'm', s: 24, w: 700, fill: '#000', anchor: 'middle', ls: 2 }) },
+    { k: 'propinquity', n: 'Propinquity', draw: () => `<path d="M300 300c-50-75-100-110-150-110a110 110 0 0 0 0 220c50 0 100-35 150-110s100-110 150-110a110 110 0 0 1 0 220c-50 0-100-35-150-110z" fill="none" stroke="${P.d}" stroke-width="56" stroke-linejoin="round"/>` + T(300, 500, 'PROPINQUITY', { f: 'd', s: 42, w: 800, fill: '#F4EAD8', anchor: 'middle', style: `paint-order:stroke;stroke:#000;stroke-width:14px` }) },
+    { k: 'story-data', n: 'Story = data', draw: () => { const g = Q.gridPattern(20, 'rgba(20,17,26,.12)', 5); return `<defs>${g.defs}</defs><rect x="60" y="150" width="480" height="300" fill="#EFE7DA"/><rect x="60" y="150" width="480" height="300" fill="url(#${g.id})"/><rect x="60" y="150" width="480" height="300" fill="none" stroke="#14111A" stroke-width="3"/>` + T(90, 190, 'FIG. QP', { f: 'm', s: 18, w: 600, fill: '#14111A', ls: 2 }) + T(300, 330, 'STORY = DATA', { f: 'd', s: 50, w: 700, fill: '#14111A', anchor: 'middle' }) + T(300, 400, 'QUASAR PHYSICS', { f: 'm', s: 22, w: 600, fill: '#C4441A', anchor: 'middle', ls: 3 }); } },
+    { k: 'droid', n: 'DROID 2× ROI', draw: () => `<circle cx="220" cy="300" r="170" fill="${P.e}"/><circle cx="380" cy="300" r="170" fill="${P.d}" style="mix-blend-mode:multiply"/>` + T(300, 320, '2× ROI', { f: 'd', s: 64, w: 800, fill: '#000', anchor: 'middle' }) },
+    { k: 'far-away', n: 'Light from far away', draw: () => `<rect x="60" y="160" width="480" height="280" rx="140" fill="#050307"/>` + Q.mark(90, 220, 160, { mode: 'party' }) + [0, 1, 2].map((i) => `<path d="M${270 + i * 40} 245a${60 + i * 20} ${60 + i * 20} 0 0 1 0 110" fill="none" stroke="${P.c}" stroke-width="10" stroke-linecap="round"/>`).join('') + T(420, 290, ['LIGHT', 'FROM', 'FAR AWAY'], { f: 'd', s: 26, w: 800, fill: '#F4EAD8', lh: 1.1 }) },
+    { k: 'hiipe', n: 'HIIPE', draw: () => { let d = ''; for (let a = 0; a <= Math.PI * 5; a += 0.08) { const r = 10 + a * 14; d += (a ? 'L' : 'M') + r2(300 + Math.cos(a) * r) + ' ' + r2(260 + Math.sin(a) * r); } return `<rect x="110" y="70" width="380" height="460" rx="190" fill="#F4EAD8"/><path d="${d}" fill="none" stroke="#C4441A" stroke-width="10" stroke-linecap="round"/>` + T(300, 470, 'HIIPE', { f: 'd', s: 66, w: 800, fill: '#050307', anchor: 'middle', ls: 4 }); } }
+  ];
+  /* Quasar ID on every sticker: a seal (or tag) that overlaps the artwork edge so the die-cut includes it */
+  const ID_POS = { symbol: [491, 491], 'afterparty-bru': [491, 491], 'event-horizon': [491, 491], dbh: [491, 491], ndf: [450, 498], brightest: [505, 402], '7d': [548, 372], iteration: [508, 458], propinquity: [450, 410], 'story-data': [538, 448], droid: [500, 420], 'far-away': [499, 399], hiipe: [434, 474] };
+  Q.stickerId = 'seal';
+  const idMark = (k) => {
+    const [x, y] = ID_POS[k] || [490, 490];
+    if (Q.stickerId === 'tag') { const w = 168; return `<g transform="translate(${Math.min(x, 600 - w / 2 - 4)} ${y})"><rect x="${-w / 2}" y="-27" width="${w}" height="54" rx="27" fill="#050307" stroke="#F4EAD8" stroke-width="3"/>${Q.mark(-w / 2 + 8, -20, 40, { mode: 'color' })}${T(-w / 2 + 54, 7, 'QUASAR', { f: 'd', s: 19, w: 700, fill: '#F4EAD8', ls: 1.5 })}</g>`; }
+    return `<circle cx="${x}" cy="${y}" r="38" fill="#050307" stroke="#F4EAD8" stroke-width="3"/>${Q.mark(x - 27, y - 27, 54, { mode: 'color' })}`;
+  };
+  Q.stickerArt = (st) => st.draw() + idMark(st.k);
+  Q.STICKERS = S;
+  Q.stickerSVG = (st, o = {}) => Q.doc(640, 640, `<g transform="translate(20 20)">${Q.dieCut(Q.stickerArt(st), 16, !o.export)}</g>`, { bg: o.transparent === false ? '#FFFFFF' : null });
+  Q.stickerItem = (st) => ({ id: `sticker-${st.k}`, title: st.n, w: 640, h: 640, register: st.k === 'dbh' || st.k === 'story-data' || st.k === 'hiipe' ? 'research' : 'party', format: 'sticker', section: 'stickers', transparent: true, webp: true,
+    presets: [{ label: 'WhatsApp 512', w: 512, h: 512 }, { label: 'Discord 320', w: 320, h: 320 }, { label: 'Slack 128', w: 128, h: 128 }],
+    svg: (o = {}) => Q.stickerSVG(st, { export: o.export, transparent: o.transparent === false ? false : null }) });
+  Q.roundItem = (st) => { const s = Q.stickerItem(st); return Object.assign({}, s, { id: `sticker-round-${st.k}`, title: `${st.n} · round 60 mm`, format: 'merch', section: 'merch', print: { mm: [60, 60], bleed: 2 }, transparent: false,
+    svg: (o = {}) => Q.doc(600, 600, `<g transform="translate(300 300) scale(1.08) translate(-300 -300)">${st.draw()}</g>${(() => { const id = Q.uid('rs'); return `<g transform="translate(300 512)"><path id="${id}" d="M-140 0h280" fill="none"/><rect x="-118" y="-24" width="236" height="40" rx="20" fill="#050307" stroke="#F4EAD8" stroke-width="2"/>${Q.mark(-108, -24, 40, { mode: 'color' })}${T(-62, 3, 'THE QUASAR LAB', { f: 'm', s: 15, w: 700, fill: '#F4EAD8', ls: 2 })}</g>`; })()}${o.preview ? '<circle cx="300" cy="300" r="291" fill="none" stroke="#FF2E88" stroke-width="2" stroke-dasharray="8 6"/>' : ''}`, { bg: '#000000' }) }); };
+  const sheet = () => {
+    const W = 2100, H = 2970, cols = 3, rows = 4, cw = 600, ch = 600, gx = (W - cols * cw) / (cols + 1), gy = 300;
+    return { id: 'sticker-sheet-a4', title: 'Sticker sheet · A4', w: W, h: H, register: 'party', format: 'sticker', section: 'stickers', print: { mm: [210, 297], bleed: 3 }, dark: false,
+      svg: (o = {}) => Q.doc(W, H, Q.place('horizontal', gx, 90, 1100, 120, { mode: 'mono', ink: '#050307' }) + Q.text(W - gx, 190, 'DIE-CUT · KISS CUT ON WHITE BORDER', { f: 'm', s: 24, w: 600, ls: 3, fill: '#857985', anchor: 'end' }) +
+        S.slice(0, 12).map((st, i) => `<g transform="translate(${r2(gx + (i % cols) * (cw + gx))} ${gy + Math.floor(i / cols) * (ch + 40)}) scale(.9375)">${Q.dieCut(Q.stickerArt(st), 16, false)}</g>`).join(''), { bg: '#F2F0EC' }) };
+  };
+  QS.app('stickers', {
+    title: 'Stickers', desc: 'Die-cut sticker set with white border. WhatsApp, Slack, Discord and print.',
+    lede: 'Thirteen die-cut stickers, each marked with the Quasar seal. Each one exports at platform sizes with a transparent background (WebP for WhatsApp), and the A4 sheet goes straight to a kiss-cut printer.',
+    items: () => [...S.map(Q.stickerItem), sheet()],
+    render(el) {
+      const grid = () => { QS.$('#stkGrid', el).innerHTML = S.map((s) => QS.card(Q.stickerItem(s))).join(''); QS.$('#stkSheet', el).innerHTML = QS.card(sheet()); };
+      el.innerHTML = `<div class="panel" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between"><div class="field"><span>Quasar ID on every sticker</span>${QS.seg('sid', [['seal', 'Seal'], ['tag', 'Tag']], Q.stickerId)}</div><p class="note" style="max-width:52ch">Every sticker carries the lab's ID. It overlaps the artwork edge, so the white die-cut border wraps it and it can't be trimmed off.</p></div>
+        <div class="grid" id="stkGrid" style="--min:190px;margin-top:18px"></div>
+        ${QS.section('Print sheet', 'A4 with 3 mm bleed. Ask the printer for kiss cut along the outer edge of the white border.', `<div class="grid" style="--min:300px"><div id="stkSheet"></div><div class="panel"><h3>Platform specs</h3><div class="spec" style="font-size:.8rem;gap:8px"><span><b>WhatsApp</b> 512 × 512, WebP, under 100 KB, 16 px margin (built in). Packs need 3–30 stickers plus a 96 × 96 tray icon.</span><span><b>Discord</b> 320 × 320 PNG, under 512 KB.</span><span><b>Slack</b> custom emoji 128 × 128 PNG, under 128 KB.</span><span><b>Telegram</b> 512 px on the long side, PNG or WebP.</span><span><b>Print</b> white vinyl, matte or gloss laminate, kiss cut. Party stickers can be printed with fluorescent spot inks: ask for PMS 802 / 806.</span></div></div></div>`)}`;
+      grid();
+      el.addEventListener('click', (e) => { const b = e.target.closest('[data-seg="sid"] button'); if (b) { Q.stickerId = b.dataset.v; grid(); } });
+    }
+  });
+})();

@@ -1,0 +1,4 @@
+/* Quasar Studio · local font faces (all SIL Open Font License 1.1, see OFL-*.txt) */
+@font-face{font-family:'Unbounded';src:url('Unbounded-Variable-latin.woff2') format('woff2'),url('Unbounded-Variable.ttf') format('truetype');font-weight:200 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Space Grotesk';src:url('SpaceGrotesk-Variable-latin.woff2') format('woff2'),url('SpaceGrotesk-Variable.ttf') format('truetype');font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:url('JetBrainsMono-Variable-latin.woff2') format('woff2'),url('JetBrainsMono-Variable.ttf') format('truetype');font-weight:100 800;font-style:normal;font-display:swap}
