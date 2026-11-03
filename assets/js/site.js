@@ -1,6 +1,6 @@
 /* Quasar Studio · shell: version, router, theme, shared UI helpers.
    To publish a new version, change versao below and add a line to CHANGELOG in README.md. */
-var SITE = { nome: 'Quasar Studio', versao: 'V.1.1 - November 2026' };
+var SITE = { nome: 'Quasar Studio', versao: 'V.1.2 - November 2026' };
 
 (function () {
   const QS = (window.QS = { apps: {}, reg: {} });

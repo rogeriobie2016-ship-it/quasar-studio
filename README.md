@@ -5,7 +5,7 @@ The design system and production toolkit of **The Quasar Lab**. Confidential: in
 Version line lives in `assets/js/site.js`:
 
 ```js
-var SITE = { nome: 'Quasar Studio', versao: 'V.1.1 - November 2026' };
+var SITE = { nome: 'Quasar Studio', versao: 'V.1.2 - November 2026' };
 ```
 
 ## What is in the box
@@ -102,5 +102,6 @@ Unbounded, Space Grotesk and JetBrains Mono are licensed under the SIL Open Font
 
 ## Changelog
 
+- **V.1.2 - November 2026** Removed the uncrossed Not Designed For sticker and the NDF enamel pin.
 - **V.1.1 - November 2026** Tote art uses the crossed line, with the X knocked out of NOT. UnitedXR panel title is now "Designing for the people systems missed".
 - **V.1 - November 2026** First release: foundations, 16 sections, export engine, stings, kits.
