@@ -26,11 +26,18 @@
     return { id: `wristband-${v}`, title: `Wristband · ${v}`, w: W, h: H, register: v === 'research' ? 'research' : 'party', format: 'merch', section: 'merch', print: { mm: [250, 25], bleed: 2 }, dark: v === 'crew',
       svg: (o = {}) => { let s = `<rect x="0" y="0" width="250" height="${H}" fill="${th.ink}" opacity=".08"/>` + T(125, 140, 'TAB', { f: 'm', s: 26, w: 700, fill: th.ink, anchor: 'middle', ls: 4, op: o.preview ? 0.5 : 0 }); for (let x = 290, i = 0; x < W - 100; i++) { s += Q.mark(x, 65, 120, v === 'research' ? { mode: 'mono', ink: th.ink } : v === 'crew' ? { mode: 'party' } : { mode: 'mono', ink: '#000' }); x += 150; const tw = Q.tw(label, 44, 'd', 800, 2); if (x + tw > W - 40) break; s += T(x, 142, label, { f: 'd', s: 44, w: 800, fill: th.fg, ls: 2 }); x += tw + 50; } return Q.doc(W, H, s, { bg: th.bg }); } };
   };
+  /* Crossed line for one-ink pieces. The mask knocks the X out of NOT, so the gap stays free of ink on a transparent export. */
+  const crossedLine = (W, H, c) => {
+    const id = Q.uid('x'), X = 'M1000 1872Q1400 2010 1806 2172M1800 1862Q1420 1990 1012 2192', stroke = 'fill="none" stroke-linecap="round"';
+    return `<mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#fff"/><path d="${X}" ${stroke} stroke="#000" stroke-width="58"/></mask>` +
+      `<g mask="url(#${id})">${T(1400, 2110, 'NOT', { f: 'd', s: 300, w: 800, fill: c, anchor: 'middle', ls: 14 })}</g><path d="${X}" ${stroke} stroke="${c}" stroke-width="26"/>` +
+      T(1400, 2410, 'DESIGNED FOR', { f: 'd', s: 190, w: 800, fill: c, anchor: 'middle', ls: 14 });
+  };
   const tote = (ink) => {
     const W = 2800, H = 3000, c = ink === 'cream' ? '#F4EAD8' : '#050307', bag = ink === 'cream' ? '#14111A' : '#E9DFC9';
     return { id: `tote-${ink}-ink`, title: `Tote · 1-color ${ink}`, w: W, h: H, register: 'research', format: 'merch', section: 'merch', print: { mm: [280, 300], bleed: 0 }, dark: ink === 'cream',
       svg: (o = {}) => Q.doc(W, H, Q.orbits(1400, 1250, 300, 90, 8, 120, c, 6, 1, -10, '18 24') + Q.quasar(1400, 1250, 380, { reg: 'research', fg: c, a: c, bg: o.transparent ? 'none' : bag, line: c }, { jet: 520, sw: 8, tilt: -10 }) +
-        T(1400, 2380, 'NOT DESIGNED FOR', { f: 'd', s: 170, w: 800, fill: c, anchor: 'middle', ls: 4 }) + Q.place('primary', 700, 2560, 1400, 200, { mode: 'mono', ink: c, align: 'center' }), { bg: bag, transparent: o.transparent }) };
+        crossedLine(W, H, c) + Q.place('primary', 700, 2560, 1400, 200, { mode: 'mono', ink: c, align: 'center' }), { bg: bag, transparent: o.transparent }) };
   };
   const lanyard = () => { const W = 9000, H = 200; return { id: 'lanyard', title: 'Lanyard · 20 × 900 mm', w: W, h: H, register: 'party', format: 'merch', section: 'merch', print: { mm: [900, 20], bleed: 2 }, svg: () => { let s = ''; for (let x = 60; x < W - 600; x += 1140) s += Q.place('primary', x, 50, 1000, 100, { mode: 'party', valign: 'middle' }); return Q.doc(W, H, s, { bg: '#000' }); } }; };
   const poster = (reg) => {

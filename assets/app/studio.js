@@ -1,7 +1,7 @@
 /* § Studio: event kit builder. One event + one register → a matched set of pieces, one ZIP. */
 (function () {
   const KITS = {
-    uxr: { eyebrow: 'UnitedXR Europe · Brussels', title: 'Reality Hack afterparty', date: 'DEC 2026', place: 'LaVallée, Brussels', body: 'After the panel, the party. Come find the light.', cta: 'RSVP · link in bio', tag: 'events', quote: 'Design for the people systems were not designed for.', cite: 'The Quasar Lab', panelTitle: 'Designing for the Not Designed For', booth: 'Visit the booth · Dec 8 · Maison de la Poste' },
+    uxr: { eyebrow: 'UnitedXR Europe · Brussels', title: 'Reality Hack afterparty', date: 'DEC 2026', place: 'LaVallée, Brussels', body: 'After the panel, the party. Come find the light.', cta: 'RSVP · link in bio', tag: 'events', quote: 'Design for the people systems were not designed for.', cite: 'The Quasar Lab', panelTitle: 'Designing for the people systems missed', booth: 'Visit the booth · Dec 8 · Maison de la Poste' },
     mit: { eyebrow: 'MIT Reality Hack · Cambridge', title: 'Hack the seventh dimension', date: 'JAN 2027', place: 'MIT · Cambridge, MA', body: 'Five days of building, one night of light.', cta: 'Details · link in bio', tag: 'events', quote: 'Stories and data on the same plane.', cite: 'Quasar Physics', panelTitle: 'Spatial design in seven dimensions', booth: 'Workshops all week' },
     sun: { eyebrow: 'Sundance · 2027', title: 'Light from far away', date: 'JAN 2027', place: 'Sundance Film Festival', body: 'A gathering on film, data and the people we design with.', cta: 'Invite only · ask the lab', tag: 'travel', quote: 'Become the brightest light.', cite: 'The Quasar Lab', panelTitle: 'Film as research, research as film', booth: 'Salon and screening' }
   };
