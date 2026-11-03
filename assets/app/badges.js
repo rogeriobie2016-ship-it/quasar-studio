@@ -37,7 +37,6 @@
   /* pin-back buttons: 58 mm face + 6 mm wrap each side = 70 mm print circle. 10 units = 1 mm */
   const BTN = [
     { k: 'mark', n: 'The mark', bg: '#000', draw: () => Q.mark(170, 170, 360, { mode: 'party' }) },
-    { k: 'ndf', n: 'I am NDF', bg: '#FF2E88', draw: () => T(350, 330, ['I AM', 'NOT', 'DESIGNED', 'FOR'], { f: 'd', s: 62, w: 800, fill: '#000', anchor: 'middle', lh: 1 }) },
     { k: '7d', n: '7D', bg: '#000', draw: () => `<ellipse cx="350" cy="350" rx="250" ry="70" fill="none" stroke="#7A3DFF" stroke-width="18" transform="rotate(-16 350 350)"/>` + T(350, 440, '7D', { f: 'd', s: 250, w: 800, fill: '#C8FF1F', anchor: 'middle' }) },
     { k: 'afterparty', n: 'Afterparty', bg: '#FFC21A', draw: () => T(350, 320, ['REALITY', 'HACK'], { f: 'd', s: 64, w: 800, fill: '#000', anchor: 'middle', lh: 1 }) + T(350, 455, 'AFTERPARTY', { f: 'd', s: 54, w: 800, fill: '#FF2E88', anchor: 'middle' }) },
     { k: 'dbh', n: 'Ask me about Data Black Holes', bg: '#EFE7DA', draw: () => { let s = ''; for (let i = 0; i < 7; i++) { const f = i / 6, rx = 180 * Math.pow(1 - f, 1.4) + 8; s += `<ellipse cx="350" cy="${r2(380 + f * f * 90)}" rx="${r2(rx)}" ry="${r2(rx * 0.24)}" fill="none" stroke="#14111A" stroke-width="3"/>`; } return T(350, 250, ['ASK ME ABOUT', 'DATA BLACK HOLES'], { f: 'd', s: 34, w: 700, fill: '#C4441A', anchor: 'middle', lh: 1.15 }) + s; } },
