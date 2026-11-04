@@ -5,7 +5,7 @@ The design system and production toolkit of **The Quasar Lab**. Confidential: in
 Version line lives in `assets/js/site.js`:
 
 ```js
-var SITE = { nome: 'Quasar Studio', versao: 'V.1.4 - November 2026' };
+var SITE = { nome: 'Quasar Studio', versao: 'V.1.5 - November 2026' };
 ```
 
 ## What is in the box
@@ -102,6 +102,7 @@ Unbounded, Space Grotesk and JetBrains Mono are licensed under the SIL Open Font
 
 ## Changelog
 
+- **V.1.5 - November 2026** Added the crossed Designed For enamel pin, with raised X and screen-printed words.
 - **V.1.4 - November 2026** Added the crossed Designed For sticker and 58 mm button.
 - **V.1.3 - November 2026** Removed the uncrossed "I am NDF" 58 mm button.
 - **V.1.2 - November 2026** Removed the uncrossed Not Designed For sticker and the NDF enamel pin.
